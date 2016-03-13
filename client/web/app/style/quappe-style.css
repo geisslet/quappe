@@ -1,0 +1,23 @@
+* {
+	padding: 0px;
+	margin: 0px;
+}
+
+body {
+	background-color: white;
+}
+
+.centered-container {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+
+.centered-item {
+}
+
+.centered-text {
+	text-align: center;
+}
