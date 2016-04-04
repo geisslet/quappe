@@ -10,6 +10,12 @@ function quappeStatementPostCtrl(quappeApi){
 	var vm = this;
 
 	vm.status = { status: 'voll in butter'}; 
-	//vm.status = quappeApi.status();
 
+	quappeApi.status()
+		.then(function(resp){
+			console.log('quappeStatementPostCtrl: ' + JSON.stringify(vm.status));
+			vm.status = resp;
+		}, function(error){
+			console.log('quappeStatementPostCtrl: ' + JSON.stringify(vm.status));
+		});
 }

@@ -3,54 +3,57 @@
     // esFactory() creates a configured client instance. Turn that instance
     // into a service so that it can be required by other parts of the application
 
-angular
+var api = angular
     .module('quappe')
     .service('quappeApi', quappeApi);
-    //.service('quappeApi', ['', function () {
 
-quappeApi.$inject = ['elasticsearch']; 
-function quappeApi (elasticsearch) {
+quappeApi.$inject = ['esFactory', '$q']; 
+function quappeApi (esFactory, $q) {
 
     console.log('quappeApi instanciated.');
-/*        
-    var esClient = elasticsearch.Client({
-        host: 'localhost:9200'
-    });
-*/
-    var esFactory = {};
    
-    var esclient = elasticsearch ({
+    var esclient = esFactory ({
         host: 'localhost:9200',
         apiVersion: '2.1',
         log: 'trace'
     });
   
     this.status = function () {
-        esclient.cluster.state({
-        metric: [
-          'cluster_name',
-          'nodes',
-          'master_node',
-          'version'
-        ]
-      })
-      .then(function (resp) {
-        $scope.clusterState = resp;
-        $scope.error = null;
 
-        return resp;
-      })
-      .catch(function (err) {
-        $scope.clusterState = null;
-        $scope.error = err;
+        //return { status: 'mock, just a mock. mock style.'};
 
-        // if the err is a NoConnections error, then the client was not able to
-        // connect to elasticsearch. In that case, create a more detailed error
-        // message
-   /*     if (err instanceof elasticsearch.errors.NoConnections) {
-          $scope.error = new Error('Unable to connect to elasticsearch. ' +
-            'Make sure that it is running and listening at http://localhost:9200');
-        }*/
+        return $q(function(resolve, reject){
+            esclient.cluster.state({
+            metric: [
+              'cluster_name',
+              'nodes',
+              'master_node',
+              'version'
+            ]
+          })
+          .then(function (resp) {
+            console.log(JSON.stringify(resp));
+
+            this.clusterState = resp;
+            this.error = null;
+
+            resolve(resp);
+            //return resp;
+          })
+          .catch(function (err) {
+            this.clusterState = null;
+            this.error = err;
+
+            reject(err);
+            //return err;
+            // if the err is a NoConnections error, then the client was not able to
+            // connect to elasticsearch. In that case, create a more detailed error
+            // message
+       /*     if (err instanceof elasticsearch.errors.NoConnections) {
+              $scope.error = new Error('Unable to connect to elasticsearch. ' +
+                'Make sure that it is running and listening at http://localhost:9200');
+            }*/
+        });
       });
     };
 

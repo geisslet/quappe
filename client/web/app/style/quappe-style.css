@@ -1,23 +1,27 @@
 * {
-	padding: 0px;
-	margin: 0px;
+    padding: 0px;
+    margin: 0px;
 }
 
 body {
-	background-color: white;
+    background-color: white;
 }
 
 .centered-container {
-	min-height: 100vh;
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	align-items: center;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 
 .centered-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 
 .centered-text {
-	text-align: center;
+    text-align: center;
 }
