@@ -5,8 +5,6 @@
         <title>Quappe</title>
         
         <!-- 3rd party  -->
-        <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
-        <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
         <script type="text/javascript" src="bower_components/angular-route/angular-route.min.js"></script>
         <!--script type="text/javascript" src="bower_components/elasticsearch/elasticsearch.js"></script-->
@@ -25,46 +23,34 @@
         <script type="text/javascript" src="features/quappe.sign-up.ctrl.js"></script>
         <script type="text/javascript" src="features/quappe.statement.detail.ctrl.js"></script>
         <script type="text/javascript" src="features/quappe.statement.post.ctrl.js"></script>
-        <!--script type="text/javascript" href="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
-        <script type="text/javascript" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script-->
-
+    
         <!-- styles -->
         <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.css">
         <link rel="stylesheet" type="text/css" href="style/quappe-style.css">
 
         <!--link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"></link-->
+        <link rel="icon" href="resource/quappe-logo.png" type="image/png" sizes="16x16">
     </head>
 
     <body ng-app="quappe">
 
-        <div class="row centered-item">
+        <div class="row navigation-bar" >
             <div class="btn-group" role="group" >      
-                <a href="#hello" class="btn btn-default glyphicon glyphicon-home" type="button"></a>
-                <a href="#browse" class="btn btn-default" type="button">browse</a>
-                <a href="#signin" class="btn btn-default" type="button">sign in</a>
-                <a href="#signup" class="btn btn-default" type="button">sign up</a>
-                <a href="#my" class="btn btn-default" type="button">my</a>
-                <a href="#post" class="btn btn-default" type="button">post</a>
-                <a href="#detail" class="btn btn-default" type="button">detail</a>
+                <a href="#hello" class="btn btn-default btn-nav glyphicon glyphicon-home" type="button"></a>
+                <a href="#browse" class="btn btn-default btn-nav glyphicon glyphicon-search" type="button"></a>
+                <a href="#signin" class="btn btn-default btn-nav" type="button">sign in</a>
+                <a href="#signup" class="btn btn-default btn-nav" type="button">sign up</a>
+                <a href="#my" class="btn btn-default btn-nav" type="button">my</a>
+                <a href="#post" class="btn btn-default btn-nav" type="button">post</a>
+                <a href="#detail" class="btn btn-default btn-nav" type="button">detail</a>
             </div>
         </div>
 
         <div class="row">
-            <div class="container">
+            <div class="centered-container">
                 <div ng-view></div>
-            </div>            
-        </div>
-
-        <main class="centered-item">
-            
-            <div class="row">
-                <div class="centered-item">
-                    <img src="resource/quappe-logo.png"/>
-                    <p class="centered-text">Quappe.org</p>
-                </div>
             </div>
-
-        </main>        
+        </div>
 
     </body>
 
