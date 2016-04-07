@@ -7,8 +7,8 @@ var api = angular
     .module('quappe')
     .service('quappeApi', quappeApi);
 
-quappeApi.$inject = ['esFactory', '$q']; 
-function quappeApi (esFactory, $q) {
+quappeApi.$inject = ['esFactory', '$q', '$http', '$log'];
+function quappeApi (esFactory, $q, $http, $log) { 
 
     console.log('quappeApi instanciated.');
    
@@ -78,7 +78,12 @@ function quappeApi (esFactory, $q) {
     };
 
     this.browse = function () {
-
+        return $http.get('data/posts.json');
+        /*
+            .then(function(res){
+                $log.debug(JSON.stringify(res));
+                return res.data;                
+        });*/
     };
 
     this.delete = function () {

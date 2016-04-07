@@ -1,18 +1,54 @@
-<div ng-controller="quappeBrowseCtrl as vm">
+<div ng-controller="quappeBrowseCtrl as vm" ng-init="vm.activate()">
     <div class="row">
     
         <div class="col-md-offset-2 col-md-8">
 
-		    <div class="input-group">
-		        
-		        <input type="text" class="form-control" placeholder="browse">
-		        
-		        <span class="input-group-btn">
-		            <button class="btn btn-default" type="button">search</button>
-		        </span>
-		        
-		    </div>
+            <div class="input-group">
+                
+                <input type="text" class="form-control" placeholder="browse">
+                
 
-		</div>
-	</div>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button">search</button>
+                </span>
+                
+            </div>
+
+        </div>
+    </div>
+
+    <div class="row">
+        <hr>
+        <h3 class="label label-success col-md-offset-1 col-md-1">Newest - Top 10</h3>
+    </div>
+    <div class="row">
+        <div ng-repeat="item in vm.browseResult">
+            <div class="col-md-offset-2 col-md-6">
+                {{item.post}}
+            </div>
+            <div class="col-md-2">
+                <span class="badge" style="width: 50px">{{item.agree}}</span>
+                <button class="btn btn-default" ng-click="vm.agree($index)"><span class="glyphicon glyphicon-plus"></span></button>
+                <button class="btn btn-default" ng-click="vm.dis($index)"><span class="glyphicon glyphicon-minus"></span></button>
+                <span class="badge" style="width: 50px">{{item.dis}}</span>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <hr>
+        <h3 class="label label-primary col-md-offset-1 col-md-1">Hot - Top 10</h3>
+    </div>
+    <div class="row">
+        <div ng-repeat="item in vm.browseResult">
+            <div class="col-md-offset-2 col-md-6">
+                {{item.post}}
+            </div>
+            <div class="col-md-2">
+                <span class="badge" style="width: 50px">{{item.agree}}</span>
+                <button class="btn btn-default" ng-click="vm.agree($index)"><span class="glyphicon glyphicon-plus"></span></button>
+                <button class="btn btn-default" ng-click="vm.dis($index)"><span class="glyphicon glyphicon-minus"></span></button>
+                <span class="badge" style="width: 50px">{{item.dis}}</span>
+            </div>
+        </div>
+    </div>
 </div>

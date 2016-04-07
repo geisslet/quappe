@@ -1,6 +1,16 @@
 angular.module('quappe')
     .controller('quappeSignUpCtrl', quappeSignUpCtrl);
 
-function quappeSignUpCtrl(){
+quappeSignUpCtrl.$inject = [ 'quappeApi', '$log'];
+function quappeSignUpCtrl(quappeApi, $log){
         
+	var vm = this;
+
+	vm.activate = function(){
+		$log.debug('quappeSignUpCtrl.activate()');
+	};
+
+	vm.signUp = function(){
+
+	};
 }
