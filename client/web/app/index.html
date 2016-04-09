@@ -19,6 +19,7 @@
         <!-- my controller scripts relate on services -->
         <script type="text/javascript" src="features/quappe.hello.ctrl.js"></script>
         <script type="text/javascript" src="features/quappe.browse.ctrl.js"></script>
+        <script type="text/javascript" src="features/quappe.my.ctrl.js"></script>
         <script type="text/javascript" src="features/quappe.sign-in.ctrl.js"></script>
         <script type="text/javascript" src="features/quappe.sign-up.ctrl.js"></script>
         <script type="text/javascript" src="features/quappe.statement.detail.ctrl.js"></script>
@@ -29,22 +30,20 @@
         <link rel="stylesheet" type="text/css" href="style/quappe-style.css">
 
         <!--link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"></link-->
-        <link rel="icon" href="resource/quappe-logo.png" type="image/png" sizes="16x16">
+        <link rel="icon" href="resource/favicon.png" type="image/png" sizes="16x16">
     </head>
 
     <body ng-app="quappe">
 
         <div class="row navigation-bar" >
-            <div class="btn-group" role="group" >      
-                <a href="#hello" class="btn btn-default btn-nav glyphicon glyphicon-home" type="button"></a>
-                <a href="#browse" class="btn btn-default btn-nav glyphicon glyphicon-search" type="button"></a>
-                <a href="#post" class="btn btn-default btn-nav" type="button">post</a>
-                <a href="#detail" class="btn btn-default btn-nav" type="button">detail</a>
-            </div>
-            <div class="btn-group" role="group" >     
-                <a href="#signin" class="btn btn-default btn-nav" type="button">sign in</a>
-                <a href="#signup" class="btn btn-default btn-nav" type="button">sign up</a>
-                <a href="#my" class="btn btn-default btn-nav" type="button"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>my</a>
+            <div class="btn-group" data-toggle="buttons">      
+                <a href="#hello" class="btn btn-default btn-nav" type="radio"><span class="glyphicon glyphicon-home"></span></a>
+                <a href="#browse" class="btn btn-default btn-nav" type="radio"><span class="glyphicon glyphicon-search"></span></a>
+                <a href="#post" class="btn btn-default btn-nav" type="radio">post</a>
+                <a href="#detail" class="btn btn-default btn-nav" type="radio">detail</a>   
+                <a href="#signin" class="btn btn-default btn-nav" type="radio">sign in</a>
+                <a href="#signup" class="btn btn-default btn-nav" type="radio">sign up</a>
+                <a href="#my" class="btn btn-default btn-nav" type="radio"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>my</a>
             </div>
         </div>
 

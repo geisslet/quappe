@@ -1,8 +1,47 @@
-<div ng-controller="quappeSignUpCtrl.ctrl as vm" ng-init="vm.activate()">
+<div ng-controller="quappeSignUpCtrl as vm" ng-init="vm.activate()">
     
-	<div class="input-group">
-	  <span class="input-group-addon" id="basic-addon1">@</span>
-	  <input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1">
-	</div>
+    <div class="row">
+        <div class="form-group col-md-offset-2 col-md-2">
+            <label for="Username">Username</label>
+            <div class="input-group">
+                <span class="input-group-addon" id="basic-addon1">@</span>
+                <input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1">
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="form-group col-md-offset-2 col-md-8">
+            <label for="exampleInputEmail1">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="form-group col-md-offset-2 col-md-8">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-offset-2 col-md-8">
+            <div class="checkbox well">
+                <label>
+                    <input type="checkbox" ng-model="checked">Ich akzeptiere und respektieren folgende Regeln:
+                    <br>
+                    <br>
+                    <ul>
+                        <li>andere Meinungen, sind andere Meinungen</li>
+                        <li>eine Position ist das Ziel</li>
+                        <li>Konsens muss nicht sein</li>
+                        <li>alles Streben muss konstruktiv sein</li>
+
+                    </ul>
+                </label>
+            </div>
+            <button type="submit" class="btn btn-primary" ng-disabled="!checked">Sign Up</button>
+        </div>
+    </div>
 
 </div>
