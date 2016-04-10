@@ -1,37 +1,59 @@
 <div ng-controller="quappeStatementDetailCtrl as vm" ng-init="vm.activate()">
     
-    <!--h1>statement detail {{vm.post}}</h1-->
-    
-    <div class="row">
-        <label class="col-md-offset-2 col-md-1">Statement</label>
-        <div class="col-md-6">
-            <input type="text" class="form-control" ng-model="vm.post.post" placeholder="meine meinung ist ..." disabled>
-        </div>
-        <div class="col-md-2">
-            <span class="badge" style="width: 50px">{{vm.post.agree}}</span>
-            <button class="btn btn-default" ng-click="vm.agree()"><span class="glyphicon glyphicon-plus"></span></button>
-            <button class="btn btn-default" ng-click="vm.dis()"><span class="glyphicon glyphicon-minus"></span></button>
-            <span class="badge" style="width: 50px">{{vm.post.dis}}</span>
-        </div>
-    </div>
-
+    <h1 class="col-md-offset-2">statement detail</h1>
     <br>
-    <div class="row">
-        <label class="col-md-offset-2 col-md-1">Argumente</label>
+    <br>
+    <div ng-hide="vm.ok">
+        <div class="alert alert-danger col-md-offset-2 col-md-8" role="alert">geht nicht ohne übergabe ID. Klapperkopp.</div>
     </div>
+    <div ng-show="vm.ok">
+        <div class="row">
+            <label class="col-md-offset-2 col-md-1">Statement</label>
+            <div class="col-md-6">
+                <input type="text" class="form-control" ng-model="vm.post.post" placeholder="meine meinung ist ..." disabled>
+            </div>
+            <div class="col-md-2">
 
-    <div class="row">
-        <div ng-repeat="item in vm.post.args">
-            <div class="row">
-                <div class="col-md-offset-3 col-md-6">
-                    <!--label>Argument {{$index+1}}</label-->
-                    <input type="text" class="form-control" ng-model="item.arg">
-                </div>
-                <div class="col-md-2">
-                    <span class="badge" style="width: 50px">{{item.agree}}</span>
-                    <button class="btn btn-default" ng-click="vm.argAgree($index)"><span class="glyphicon glyphicon-plus"></span></button>
-                    <button class="btn btn-default" ng-click="vm.argDis($index)"><span class="glyphicon glyphicon-minus"></span></button>
-                    <span class="badge" style="width: 50px">{{item.dis}}</span>
+                    <span class="badge" style="width: 50px">{{vm.post.agree}}</span>
+
+                    <button class="btn btn-default" ng-class="{active: vm.post.votePro}" ng-click="vm.agree($index)"><span class="glyphicon glyphicon-thumbs-up"></span></button>
+                    <button class="btn btn-default" ng-class="{active: vm.post.voteCon}" ng-click="vm.dis($index)"><span class="glyphicon glyphicon-thumbs-down"></span></button>
+
+                    <span class="badge" style="width: 50px">{{vm.post.dis}}</span>
+
+                <!--span class="badge" style="width: 50px">{{vm.post.agree}}</span>
+                <button class="btn btn-default" ng-click="vm.agree()"><span class="glyphicon glyphicon-plus"></span></button>
+                <button class="btn btn-default" ng-click="vm.dis()"><span class="glyphicon glyphicon-minus"></span></button>
+                <span class="badge" style="width: 50px">{{vm.post.dis}}</span-->
+            </div>
+        </div>
+
+        <br>
+        <div class="row">
+            <label class="col-md-offset-2 col-md-1">Argumente</label>
+        </div>
+
+        <div class="row">
+            <div ng-repeat="item in vm.post.args">
+                <div class="row">
+                    <div class="col-md-offset-3 col-md-6">
+                        <!--label>Argument {{$index+1}}</label-->
+                        <input type="text" class="form-control" ng-model="item.arg">
+                    </div>
+                    <div class="col-md-2">
+                        
+                        <span class="badge" style="width: 50px">{{item.agree}}</span>
+
+                        <button class="btn btn-default" ng-class="{active: item.votePro}" ng-click="vm.argAgree($index)"><span class="glyphicon glyphicon-thumbs-up"></span></button>
+                        <button class="btn btn-default" ng-class="{active: item.voteCon}" ng-click="vm.argDis($index)"><span class="glyphicon glyphicon-thumbs-down"></span></button>
+
+                        <span class="badge" style="width: 50px">{{item.dis}}</span>
+
+                        <!--span class="badge" style="width: 50px">{{item.agree}}</span>
+                        <button class="btn btn-default" ng-click="vm.argAgree($index)"><span class="glyphicon glyphicon-plus"></span></button>
+                        <button class="btn btn-default" ng-click="vm.argDis($index)"><span class="glyphicon glyphicon-minus"></span></button>
+                        <span class="badge" style="width: 50px">{{item.dis}}</span-->
+                    </div>
                 </div>
             </div>
         </div>

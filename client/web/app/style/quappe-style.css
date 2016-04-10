@@ -30,6 +30,14 @@ body {
     margin-right: 15px;
 }
 
+.btn-default:active, .active.btn-default{
+    background-color: lightgreen;
+}
+
+.cursor-finger{
+    cursor: pointer;
+}
+
 /*
 .centered-item {
     /*display: flex;

@@ -40,6 +40,7 @@ function route($routeProvider){
             templateUrl: 'features/quappe.statement.detail.html',
         })
         .otherwise({
-            redirectTo: 'features/quappe.hello.html'
+            templateUrl:'features/quappe.hello.html'
+            //redirectTo: 'features/quappe.hello.html'
         });
 }

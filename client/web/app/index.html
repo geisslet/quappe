@@ -17,6 +17,7 @@
         <script type="text/javascript" src="services/quappe.api.js"></script>
         
         <!-- my controller scripts relate on services -->
+        <script type="text/javascript" src="quappe.app.ctrl.js"></script>        
         <script type="text/javascript" src="features/quappe.hello.ctrl.js"></script>
         <script type="text/javascript" src="features/quappe.browse.ctrl.js"></script>
         <script type="text/javascript" src="features/quappe.my.ctrl.js"></script>
@@ -33,19 +34,42 @@
         <link rel="icon" href="resource/favicon.png" type="image/png" sizes="16x16">
     </head>
 
-    <body ng-app="quappe">
+    <body ng-app="quappe" ng-controller="quappeAppCtrl as vm" ng-init="vm.activate()">
 
-        <div class="row navigation-bar" >
-            <div class="btn-group" data-toggle="buttons">      
-                <a href="#hello" class="btn btn-default btn-nav" type="radio"><span class="glyphicon glyphicon-home"></span></a>
-                <a href="#browse" class="btn btn-default btn-nav" type="radio"><span class="glyphicon glyphicon-search"></span></a>
-                <a href="#post" class="btn btn-default btn-nav" type="radio">post</a>
+        <!--div class="row navigation-bar" -->
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">
+                        <img alt="Brand" src="resource/favicon.png">
+                    </a>
+
+                
+                    <ul class="nav navbar-nav navbar-left">
+                        <li role="presentation" ng-class="{ active: vm.isActive('/hello')}"><a href="#hello"><span class="glyphicon glyphicon-home"></span></a></li>
+                        <li role="presentation" ng-class="{ active: vm.isActive('/browse')}"><a href="#browse"><span class="glyphicon glyphicon-search"> Browse</span></a></li>
+                        <li role="presentation" ng-class="{ active: vm.isActive('/post')}"><a href="#post"><span class="glyphicon glyphicon-pencil"> post</span></a></li>
+                        <li role="presentation" ng-class="{ active: vm.isActive('/detail')}"><a href="#detail">detail</a></li>
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li role="presentation" ng-class="{ active: vm.isActive('/signin')}"><a href="#signin">sign in</a></li>
+                        <li role="presentation" ng-class="{ active: vm.isActive('/signup')}"><a href="#signup">sign up</a></li>
+                        <li role="presentation" ng-class="{ active: vm.isActive('/my')}"><a href="#my"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>my</a></li>
+                    </ul>
+
+                </div>
+            </nav>
+
+            <!--ul class="nav nav-pills"></li>
+                <li role="presentation" class="active"><a href="#hello"><span class="glyphicon glyphicon-home"></span></a></li>
+                <li role="presentation"><a href="#browse"><span class="glyphicon glyphicon-search"></span></a></li>
+                <li role="presentation"><a href="#post" class="btn btn-default btn-nav">post</a></li>
                 <a href="#detail" class="btn btn-default btn-nav" type="radio">detail</a>   
-                <a href="#signin" class="btn btn-default btn-nav" type="radio">sign in</a>
-                <a href="#signup" class="btn btn-default btn-nav" type="radio">sign up</a>
-                <a href="#my" class="btn btn-default btn-nav" type="radio"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>my</a>
-            </div>
-        </div>
+                <li role="presentation"><a href="#signin" class="btn btn-default btn-nav">sign in</a></li>
+                <li role="presentation"><a href="#signup" class="btn btn-default btn-nav">sign up</a></li>
+                <li role="presentation"><a href="#my" class="btn btn-default btn-nav"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>my</a></li>
+            </div-->
+        <!--/div-->
 
         <div class="row">
             <div class="centered-container">

@@ -28,8 +28,10 @@
             </div>
             <div class="col-md-2">
                 <span class="badge" style="width: 50px">{{item.agree}}</span>
-                <button class="btn btn-default" ng-click="vm.agree($index)"><span class="glyphicon glyphicon-plus"></span></button>
-                <button class="btn btn-default" ng-click="vm.dis($index)"><span class="glyphicon glyphicon-minus"></span></button>
+
+                <button class="btn btn-default" ng-class="{active: item.votePro}" ng-click="vm.agree($index)"><span class="glyphicon glyphicon-thumbs-up"></span></button>
+                <button class="btn btn-default" ng-class="{active: item.voteCon}" ng-click="vm.dis($index)"><span class="glyphicon glyphicon-thumbs-down"></span></button>
+
                 <span class="badge" style="width: 50px">{{item.dis}}</span>
             </div>
         </div>
@@ -45,8 +47,8 @@
             </div>
             <div class="col-md-2">
                 <span class="badge" style="width: 50px">{{item.agree}}</span>
-                <button class="btn btn-default" ng-click="vm.agree($index)"><span class="glyphicon glyphicon-plus"></span></button>
-                <button class="btn btn-default" ng-click="vm.dis($index)"><span class="glyphicon glyphicon-minus"></span></button>
+                <button class="btn btn-default" ng-class="{active: item.votePro}" ng-click="vm.agree($index)"><span class="glyphicon glyphicon-thumbs-up"></span></button>
+                <button class="btn btn-default" ng-class="{active: item.voteCon}" ng-click="vm.dis($index)"><span class="glyphicon glyphicon-thumbs-down"></span></button>
                 <span class="badge" style="width: 50px">{{item.dis}}</span>
             </div>
         </div>

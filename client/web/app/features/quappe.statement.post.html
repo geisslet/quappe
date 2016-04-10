@@ -1,14 +1,14 @@
-<div ng-controller="quappeStatementPostCtrl as vm">
+<div ng-controller="quappeStatementPostCtrl as vm" ng-init="vm.activate()">
     
-    <h1>statement post</h1>
+    <!--h1>statement post</h1>
 
-    <span>{{vm.status}}</span>
+    <span>{{vm.status}}</span-->
 
     <div class="row">
         <label class="col-md-offset-2 col-md-1">Statement</label>
         <div class="col-md-6">
             <input type="text" class="form-control" ng-model="vm.post.post" placeholder="meine meinung ist ...">
-           	<button class="btn btn-primary">Submit</button>
+           	<button class="btn btn-primary" style="margin-top: 15px">Submit</button>
         </div>
     </div>
 
@@ -22,15 +22,18 @@
             <div class="row">
                 <div class="col-md-offset-3 col-md-6">
                     <!--label>Argument {{$index+1}}</label-->
-                    <input type="text" class="form-control" ng-model="item.arg">
-                </div>
-                <div class="col-md-2">
-                    <span class="badge" style="width: 50px">{{item.agree}}</span>
-                    <button class="btn btn-default" ng-click="vm.argAgree($index)"><span class="glyphicon glyphicon-plus"></span></button>
-                    <button class="btn btn-default" ng-click="vm.argDis($index)"><span class="glyphicon glyphicon-minus"></span></button>
-                    <span class="badge" style="width: 50px">{{item.dis}}</span>
+
+                    <div class="input-group">
+                        <input type="text" ng-model="item.arg" class="form-control" placeholder="überzeug die welt" aria-describedby="basic-addon2">
+                        <span class="input-group-addon" id="basic-addon2"><span class="glyphicon glyphicon-remove cursor-finger" ng-click="vm.removeArg($index)"></span></span>
+                    </div>
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="row">
+        <div style="padding: 15px">
+            <button class="btn btn-default col-md-offset-3" ng-click="vm.newArgument()"><span class="glyphicon glyphicon-plus"></span></button>
         </div>
     </div>
 
