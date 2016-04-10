@@ -24,7 +24,7 @@
     <div class="row">
         <div ng-repeat="item in vm.browseResult">
             <div class="col-md-offset-2 col-md-6">
-                {{item.post}}
+                <a ng-href="#detail/{{$index}}">{{$index}}: <b>{{item.post}}</b></a>
             </div>
             <div class="col-md-2">
                 <span class="badge" style="width: 50px">{{item.agree}}</span>
@@ -41,7 +41,7 @@
     <div class="row">
         <div ng-repeat="item in vm.browseResult">
             <div class="col-md-offset-2 col-md-6">
-                {{item.post}}
+                <a ng-href="#detail/{{$index}}">{{$index}}: <b>{{item.post}}</b></a>
             </div>
             <div class="col-md-2">
                 <span class="badge" style="width: 50px">{{item.agree}}</span>

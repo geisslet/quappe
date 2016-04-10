@@ -58,7 +58,17 @@ function quappeApi (esFactory, $q, $http, $log) {
     };
 
     this.get = function (id) {
-    
+
+        return $q(function(success, reject){
+            $http.get('data/posts.json')
+                .then(function(response){
+
+                    success(response.data[id]);
+                }, function (response){
+
+                    reject(response);
+                });
+        });
     };
 
     this.post = function (post) {

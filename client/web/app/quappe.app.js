@@ -36,6 +36,9 @@ function route($routeProvider){
         .when('/detail',{
             templateUrl: 'features/quappe.statement.detail.html',
         })
+        .when('/detail/:id',{
+            templateUrl: 'features/quappe.statement.detail.html',
+        })
         .otherwise({
             redirectTo: 'features/quappe.hello.html'
         });

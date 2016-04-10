@@ -6,8 +6,6 @@ function quappeBrowseCtrl (quappeApi, $log) {
     
     var vm = this;
 
-    //vm.browseResult = {};
-
     vm.activate = function(){
         $log.debug('quappeBrowseCtrl.activate() called.');
         quappeApi.browse()
@@ -28,5 +26,5 @@ function quappeBrowseCtrl (quappeApi, $log) {
     vm.dis = function(index){
         vm.browseResult[index].dis++;
     };
-
+    
 }
