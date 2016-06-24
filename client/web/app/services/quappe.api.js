@@ -10,7 +10,9 @@ var api = angular
 quappeApi.$inject = ['esFactory', '$q', '$http', '$log'];
 function quappeApi (esFactory, $q, $http, $log) { 
 
-    console.log('quappeApi instanciated.');
+    $log.debug('quappeApi instanciated.');
+
+    var dataJson = null;
    
     var esclient = esFactory ({
         host: 'localhost:9200',
@@ -59,20 +61,27 @@ function quappeApi (esFactory, $q, $http, $log) {
 
     this.get = function (id) {
 
-        return $q(function(success, reject){
-            $http.get('data/posts.json')
-                .then(function(response){
+        if (dataJson){
+        
+            return $q(function(){return dataJson[id];});
+        
+        } else {
+        
+            return $q(function(success, reject){
+                $http.get('data/posts.json')
+                    .then(function(response){
 
-                    success(response.data[id]);
-                }, function (response){
+                        success(response.data[id]);
+                    }, function (response){
 
-                    reject(response);
-                });
-        });
+                        reject(response);
+                    });
+            });
+        }
     };
 
     this.post = function (post) {
-        
+        dataJson.push(post);
     };
 
     this.subpost = function (subpost) {
@@ -88,7 +97,16 @@ function quappeApi (esFactory, $q, $http, $log) {
     };
 
     this.browse = function () {
-        return $http.get('data/posts.json');
+        
+        if (dataJson){
+        
+            return $q(function(){return dataJson[id];});
+        
+        } else {
+
+            return $http.get('data/posts.json');
+
+        }
         /*
             .then(function(res){
                 $log.debug(JSON.stringify(res));

@@ -1,0 +1,20 @@
+adduser quappe
+
+visudo
+
+
+quappe: Qwert#Me08
+root: 1H1KueMdwzieuH#quappe08
+
+
+
+sudo yum install git
+
+
+do it as root
+curl --silent --location https://rpm.nodesource.com/setup_4.x | bash -
+yum -y install nodejs
+yum groupinstall 'Development Tools'  (optinal)
+
+
+git
